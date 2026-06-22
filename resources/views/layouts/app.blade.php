@@ -416,9 +416,41 @@
                             <i class="bi bi-house-fill me-1"></i>Trang chủ
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">
+                            <i class="bi bi-cake-fill me-1"></i>Thực đơn bánh
+                        </a>
+                    </li>
+                    @php
+                        $navCategories = \App\Models\Category::all();
+                    @endphp
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-tags-fill me-1"></i>Danh mục
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach($navCategories as $cat)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('categories.products', $cat->slug) }}">
+                                        {{ $cat->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <!-- Cart -->
+                    <li class="nav-item me-2">
+                        <a class="nav-link cart-badge" href="{{ route('cart.index') }}">
+                            <i class="bi bi-basket3-fill fs-5"></i>
+                            @if(count(session('cart', [])) > 0)
+                                <span class="badge rounded-pill">{{ count(session('cart', [])) }}</span>
+                            @endif
+                        </a>
+                    </li>
+
                     <!-- Auth -->
                     @guest
                         <li class="nav-item">
@@ -445,6 +477,11 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                 @endif
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('orders.index') }}">
+                                        <i class="bi bi-bag-check me-2"></i>Đơn hàng
+                                    </a>
+                                </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                         <i class="bi bi-person-gear me-2"></i>Profile
@@ -512,6 +549,8 @@
                 <div class="col-lg-2 col-md-4 mb-4">
                     <h5>Liên kết</h5>
                     <a href="{{ route('home') }}">Trang chủ</a>
+                    <a href="{{ route('products.index') }}">Thực đơn</a>
+                    <a href="{{ route('cart.index') }}">Giỏ hàng</a>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
                     <h5>Chính sách</h5>

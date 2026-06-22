@@ -30,6 +30,32 @@
             </a>
         </div>
         @endif
+        <div class="col-md-4 mb-3">
+            <a href="{{ route('orders.index') }}" class="text-decoration-none">
+                <div class="card text-center h-100 border-0 shadow-sm">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <i class="bi bi-bag-heart-fill" style="font-size: 3rem; color: var(--accent);"></i>
+                        <h5 class="mt-3">Đơn bánh của tôi</h5>
+                        <p class="text-muted">Xem lịch sử đặt bánh</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{{ route('products.index') }}" class="text-decoration-none">
+                <div class="card text-center h-100 border-0 shadow-sm">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <i class="bi bi-cake-fill" style="font-size: 3rem; color: var(--accent);"></i>
+                        <h5 class="mt-3">Đặt bánh ngay</h5>
+                        <p class="text-muted">Khám phá thực đơn bánh mới</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<<<<<<< HEAD
+        @endif
+=======
+>>>>>>> feature/order-account
     </div>
 </div>
 @endsection
