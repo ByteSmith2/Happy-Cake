@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/san-pham)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/gio-hang)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/login)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/register)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/danh-muc/cpu)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/admin)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:8000/san-pham/intel-core-i5-13400f)",
+      "Bash(curl -s http://127.0.0.1:8000/)",
+      "Bash(python -c \"import docx\")",
+      "Bash(antiword \"C:\\\\Users\\\\ADMIN\\\\Downloads\\\\doc_mau\\\\Eproject\\\\eProject Documentation Template.doc\")",
+      "Bash(python -c ' *)",
+      "Bash(npm install *)"
+    ]
+  }
+}
