@@ -84,17 +84,7 @@
             color: var(--accent-hover);
         }
 
-        /* Cart Badge */
-        .cart-badge {
-            position: relative;
-        }
-        .cart-badge .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            font-size: 0.65rem;
-            background-color: var(--accent);
-        }
+        /* Cart-related UI removed (cart-checkout feature deleted) */
 
         /* Buttons */
         .btn-accent {
@@ -437,14 +427,7 @@
                                 <i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                @if(Auth::user()->is_admin)
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                            <i class="bi bi-speedometer2 me-2"></i>Quản trị
-                                        </a>
-                                    </li>
-                                    <li><hr class="dropdown-divider"></li>
-                                @endif
+                                {{-- Admin links removed (admin-dashboard feature deleted) --}}
                                 <li>
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                         <i class="bi bi-person-gear me-2"></i>Profile

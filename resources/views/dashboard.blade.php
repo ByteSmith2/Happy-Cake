@@ -17,19 +17,7 @@
                 </div>
             </div>
         </div>
-        @if(auth()->user()->is_admin)
-        <div class="col-md-4 mb-3">
-            <a href="{{ route('admin.dashboard') }}" class="text-decoration-none">
-                <div class="card text-center h-100 border-0 shadow-sm">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <i class="bi bi-speedometer2" style="font-size: 3rem; color: var(--accent);"></i>
-                        <h5 class="mt-3">Trang quản trị</h5>
-                        <p class="text-muted">Vào khu vực quản trị</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        @endif
+        {{-- Admin dashboard link removed (admin-dashboard feature deleted) --}}
     </div>
 </div>
 @endsection
