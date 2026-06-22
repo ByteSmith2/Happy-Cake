@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -12,20 +11,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'name' => 'Admin Happy Cake',
-            'email' => 'admin@happycake.com',
-            'password' => bcrypt('password'),
-            'is_admin' => true,
-        ]);
-
-        User::create([
-            'name' => 'Nguyen Van A',
-            'email' => 'user@happycake.com',
-            'password' => bcrypt('password'),
-            'is_admin' => false,
-        ]);
-
         $categories = [
             ['name' => 'Bánh sinh nhật',  'slug' => 'banh-sinh-nhat',  'description' => 'Bánh kem sinh nhật custom theo yêu cầu, đặt trước tối thiểu 3 ngày'],
             ['name' => 'Bánh kem',        'slug' => 'banh-kem',        'description' => 'Bánh kem các loại: dâu, socola, tiramisu, matcha...'],

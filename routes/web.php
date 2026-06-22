@@ -1,38 +1,30 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
-use App\Http\Controllers\Admin\ProductController as AdminProductController;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Models\Product;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('dashboard');
+    $products = collect();
+
+    if (Schema::hasTable('products')) {
+        $products = Product::with('category')->latest()->get();
+    }
+
+    return view('home', [
+        'products' => $products,
+    ]);
 })->name('home');
 
-// Dashboard (after login redirect)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/gio-hang', [CartController::class, 'index'])->name('cart.index');
+Route::post('/gio-hang/them/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::put('/gio-hang/cap-nhat', [CartController::class, 'update'])->name('cart.update');
+Route::get('/gio-hang/xoa/{key}', [CartController::class, 'remove'])
+    ->where('key', '[A-Za-z0-9_-]+')
+    ->name('cart.remove');
 
-// Auth required
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Admin
-Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('categories', AdminCategoryController::class)->except('show');
-    Route::resource('products', AdminProductController::class)->except('show');
-    Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
-    Route::get('orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
-    Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
-    Route::get('users', [AdminUserController::class, 'index'])->name('users.index');
-});
-
-require __DIR__.'/auth.php';
+Route::get('/thanh-toan', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/thanh-toan', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/thanh-toan/hoan-tat/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
