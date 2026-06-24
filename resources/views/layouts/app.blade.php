@@ -395,7 +395,7 @@
                 <i class="bi bi-envelope-fill me-1"></i> hello@happycake.vn
             </div>
             <div>
-                <i class="bi bi-geo-alt-fill me-1"></i> 88 Hoa Hồng, Quận 1, TP. HCM
+                <i class="bi bi-geo-alt-fill me-1"></i> 99 Láng Hạ, Đống Đa, TP. Hà Nội
             </div>
         </div>
     </div>
@@ -561,7 +561,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
                     <h5>Liên hệ</h5>
-                    <p class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>88 Hoa Hồng, Quận 1, TP. HCM</p>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>99 Láng Hạ, Đống Đa, TP. Hà Nội</p>
                     <p class="mb-2"><i class="bi bi-telephone-fill me-2"></i>0123.456.789</p>
                     <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i>hello@happycake.vn</p>
                     <p class="mb-0"><i class="bi bi-clock-fill me-2"></i>7:00 - 22:00 (T2 - CN)</p>
